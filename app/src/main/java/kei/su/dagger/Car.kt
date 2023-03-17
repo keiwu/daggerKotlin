@@ -3,6 +3,7 @@ package kei.su.dagger
 import android.util.Log
 import javax.inject.Inject
 
+// constructor injection
 class Car @Inject constructor(engine: Engine, wheels: Wheels) {
     private val TAG = "Car"
 
