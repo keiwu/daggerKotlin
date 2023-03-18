@@ -14,11 +14,6 @@ class Car @Inject constructor(wheels: Wheels) {
         this.wheels = wheels
     }
 
-    @Inject
-    fun tuneEngine(){
-        engine.tuneEngine(this)
-    }
-
     //method injection, used when you need the object (Car) to be passed as argument.
     //If you don't do this, the Car object will not be instantiated when this method is called.
     //The order of injection executions: Constructor injection is called first; then field injection and
@@ -33,6 +28,7 @@ class Car @Inject constructor(wheels: Wheels) {
 
 
     fun drive(){
+        engine.start()
         Log.d(TAG, "driving car.....")
     }
 }

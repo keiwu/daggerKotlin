@@ -1,17 +1,10 @@
 package kei.su.dagger
 
-import android.util.Log
-import javax.inject.Inject
-
-
-class Engine {
-    private val TAG = "Car"
-    @Inject
-    constructor(){
-        Log.d(TAG, "Engine initialized....")
-    }
-
-    fun tuneEngine(car: Car){
-        Log.d(TAG, "tunning engine.....")
-    }
+/**
+ * when Engine is an interface instead of a class, we can not use @Provide.
+ * Instead, we can implements this interface and use @Binds to provide the Engine implemented.
+ * This we can swap the PetroEngine or DieselEngine easily for testing and code performance
+ */
+interface Engine {
+    fun start()
 }
