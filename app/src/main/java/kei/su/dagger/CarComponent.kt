@@ -2,7 +2,10 @@ package kei.su.dagger
 
 import dagger.Component
 
-@Component
+/**
+ * add the modules in the CarComponent since Car needs Wheels and WheelsModule provides the Wheels necessary to construct the car
+ */
+@Component (modules = [WheelsModule::class, RimsModule::class, TiresModule::class])
 interface CarComponent {
     fun getCar(): Car
 
