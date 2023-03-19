@@ -15,6 +15,9 @@ abstract class PetroEngineModule {
     //you should use bind instead of provide.
 
     //Binds takes a single argument, which is the implementation(PetroEngine) of the interface(Engine) defined
+
+    //by using @BindsInstance, petroEngineModule is still abstract and no instantiation is needed for dagger.
+    // We prefer @BindsInstance over module constructor argument whenever possible for efficiency
     @Binds
     abstract fun bindEngine(engine: PetroEngine): Engine
 }
