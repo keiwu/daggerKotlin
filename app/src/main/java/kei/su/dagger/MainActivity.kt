@@ -3,6 +3,7 @@ package kei.su.dagger
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kei.su.dagger.car.Car
+import kei.su.dagger.car.DieselEngineModule
 import kei.su.dagger.di.DaggerCarComponent
 import javax.inject.Inject
 
@@ -11,7 +12,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val component = DaggerCarComponent.create()
+        val component = DaggerCarComponent.builder()
+                .dieselEngineModule(DieselEngineModule(100))
+                .build()
+
         component.inject(this)
 
         car.drive()

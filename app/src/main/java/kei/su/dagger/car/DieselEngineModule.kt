@@ -2,9 +2,11 @@ package kei.su.dagger.car
 
 import dagger.Binds
 import dagger.Module
+import dagger.Provides
 
 @Module
-abstract class DieselEngineModule {
+class DieselEngineModule constructor(hp: Int) {
+    private var horsePower = hp
 
     //Use Binds instead of Provides because it is more concise;
     //Dagger can optimize the code when using Binds more than Provides or static Provides
@@ -13,6 +15,9 @@ abstract class DieselEngineModule {
     //you should use bind instead of provide.
 
     //Binds takes a single argument, which is the implementation(PetroEngine) of the interface(Engine) defined
-    @Binds
-    abstract fun bindEngine(engine: DieselEngine): Engine
+    //We can not use @Binds now because we don't have @Inject constructor now
+    @Provides
+    fun provideEngine(): Engine{
+        return DieselEngine(horsePower)
+    }
 }

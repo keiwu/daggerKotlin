@@ -13,15 +13,23 @@ import kei.su.dagger.car.Wheels
  *
  * We annotate the function with @Provides and then specify the return type to be the type we want to get:
  * for example: providesWheels(rims: Rims, tires: Tires) returns Wheels type.
+ *
+ * if all the provides methods are static, we should make the class abstract
  */
 @Module
-class WheelsModule {
-    /**
-     * rims and tires are from the providesRims() and providesTires()
-     */
-    @Provides
-    fun providesWheels(rims: Rims, tires: Tires): Wheels {
-        return Wheels(rims, tires)
+abstract class WheelsModule {
+
+    // java static equivalent in kotlin is companion object.
+    // static/companion object has better performance because no need to instantiate the object
+    companion object{
+        /**
+         * rims and tires are from the providesRims() and providesTires()
+         */
+        @Provides
+        fun providesWheels(rims: Rims, tires: Tires): Wheels {
+            return Wheels(rims, tires)
+        }
     }
+
 
 }
