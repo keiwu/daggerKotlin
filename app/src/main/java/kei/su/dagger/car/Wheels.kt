@@ -1,4 +1,4 @@
-package kei.su.dagger
+package kei.su.dagger.car
 
 
 class Wheels constructor(rims: Rims, tires: Tires){

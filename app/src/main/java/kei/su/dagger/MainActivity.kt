@@ -2,6 +2,8 @@ package kei.su.dagger
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import kei.su.dagger.car.Car
+import kei.su.dagger.di.DaggerCarComponent
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {

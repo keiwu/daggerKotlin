@@ -1,4 +1,4 @@
-package kei.su.dagger
+package kei.su.dagger.car
 
 /**
  * when Engine is an interface instead of a class, we can not use @Provide.

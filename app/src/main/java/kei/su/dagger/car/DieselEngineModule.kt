@@ -1,11 +1,10 @@
-package kei.su.dagger
+package kei.su.dagger.car
 
 import dagger.Binds
 import dagger.Module
-import dagger.Provides
 
 @Module
-abstract class PetroEngineModule {
+abstract class DieselEngineModule {
 
     //Use Binds instead of Provides because it is more concise;
     //Dagger can optimize the code when using Binds more than Provides or static Provides
@@ -15,5 +14,5 @@ abstract class PetroEngineModule {
 
     //Binds takes a single argument, which is the implementation(PetroEngine) of the interface(Engine) defined
     @Binds
-    abstract fun bindEngine(engine: PetroEngine): Engine
+    abstract fun bindEngine(engine: DieselEngine): Engine
 }

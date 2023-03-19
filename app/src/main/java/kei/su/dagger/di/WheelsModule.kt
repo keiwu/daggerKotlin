@@ -1,7 +1,10 @@
-package kei.su.dagger
+package kei.su.dagger.di
 
 import dagger.Module
 import dagger.Provides
+import kei.su.dagger.car.Rims
+import kei.su.dagger.car.Tires
+import kei.su.dagger.car.Wheels
 
 /**
  * When we don't own the class and thus we can not modify the code to do constructor injection, we can use Module.

@@ -1,7 +1,8 @@
-package kei.su.dagger
+package kei.su.dagger.di
 
 import dagger.Module
 import dagger.Provides
+import kei.su.dagger.car.Tires
 
 @Module
 class TiresModule {

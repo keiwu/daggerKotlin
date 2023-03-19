@@ -1,4 +1,4 @@
-package kei.su.dagger
+package kei.su.dagger.car
 
 import android.util.Log
 import javax.inject.Inject

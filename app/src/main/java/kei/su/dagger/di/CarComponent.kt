@@ -1,6 +1,9 @@
-package kei.su.dagger
+package kei.su.dagger.di
 
 import dagger.Component
+import kei.su.dagger.MainActivity
+import kei.su.dagger.car.Car
+import kei.su.dagger.car.DieselEngineModule
 
 /**
  * add the modules in the CarComponent since Car needs Wheels and WheelsModule provides the Wheels necessary to construct the car
