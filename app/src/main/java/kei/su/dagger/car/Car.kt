@@ -8,6 +8,7 @@ class Car @Inject constructor(wheels: Wheels) {
     private val TAG = "Car"
 
     @Inject lateinit var engine: Engine
+    @Inject lateinit var driver: Driver
     private var wheels: Wheels
 
     init {
@@ -29,6 +30,6 @@ class Car @Inject constructor(wheels: Wheels) {
 
     fun drive(){
         engine.start()
-        Log.d(TAG, "driving car.....")
+        Log.d(TAG, "$driver driving car..... $this")
     }
 }
