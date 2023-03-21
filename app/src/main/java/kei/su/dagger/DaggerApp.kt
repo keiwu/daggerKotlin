@@ -4,6 +4,8 @@ import android.app.Application
 import kei.su.dagger.di.ActivityComponent
 import kei.su.dagger.di.AppComponent
 import kei.su.dagger.di.DaggerAppComponent
+import kei.su.dagger.di.DriverModule
+
 //import kei.su.dagger.di.DaggerCarComponent
 
 /**
@@ -15,7 +17,7 @@ class DaggerApp : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        component = DaggerAppComponent.create()
+        component = DaggerAppComponent.factory().create(DriverModule("Aiden"))
     }
 
     fun getAppComponent(): AppComponent {

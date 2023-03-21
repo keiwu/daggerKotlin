@@ -14,10 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val component = (application as DaggerApp).getAppComponent()
-                .getActivityComponentBuilder()
-                .horsePower(150)
-                .engineCapacity(1400)
-                .build()
+                .getActivityComponentFactory().create(150, 1400)
 
         component.inject(this)
 

@@ -21,14 +21,12 @@ interface ActivityComponent {
     //used when we cannot construct the instance using constructor like MainActivity
     fun inject(mainActivity: MainActivity)
 
-    @Subcomponent.Builder
-    interface Builder {
-        @BindsInstance
-        fun horsePower(@Named("horse power")hp: Int): Builder
-
-        @BindsInstance
-        fun engineCapacity(@Named("engine capacity") capacity: Int): Builder
-
-        fun build(): ActivityComponent
+    //alternative to Subcomponent.Builder, but they can not exist at the sametime/
+    // benefit of this factory is the compile time benefit because it detects if horsepower or engine capacity must be exist
+    // whereas builder is runtime.
+    @Subcomponent.Factory
+    interface Factory {
+        fun create(@BindsInstance @Named("horse power")hp: Int,
+                   @BindsInstance @Named("engine capacity") capacity: Int): ActivityComponent
     }
 }

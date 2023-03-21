@@ -9,13 +9,14 @@ import kei.su.dagger.car.Wheels
 import javax.inject.Singleton
 
 @Module
-class DriverModule {
+class DriverModule constructor(name: String) {
+    private val driverName = name
 
-    companion object {
+
         @Provides
         @Singleton
         fun provideDriver(): Driver {
-            return Driver()
+            return Driver(driverName)
         }
-    }
+
 }
