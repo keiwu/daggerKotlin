@@ -3,6 +3,6 @@ package kei.su.dagger.car
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@Singleton
-class Driver @Inject constructor() {
+class Driver {
+    //assume we don't own this class, so we have to use @Provide
 }

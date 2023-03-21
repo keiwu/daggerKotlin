@@ -1,9 +1,11 @@
 package kei.su.dagger.car
 
 import android.util.Log
+import kei.su.dagger.di.PerActivity
 import javax.inject.Inject
 
 // constructor injection
+@PerActivity
 class Car @Inject constructor(wheels: Wheels) {
     private val TAG = "Car"
 
