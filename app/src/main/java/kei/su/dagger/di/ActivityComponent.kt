@@ -13,7 +13,7 @@ import javax.inject.Named
  * We can swap the DieselEngineModule::class with PetroEngineModule:class easily or other type of engine for testing
  */
 @PerActivity
-@Subcomponent(modules = [WheelsModule::class, RimsModule::class, TiresModule::class, DieselEngineModule::class])
+@Subcomponent(modules = [WheelsModule::class, RimsModule::class, TiresModule::class, PetroEngineModule::class])
 interface ActivityComponent {
     fun getCar(): Car
 
@@ -21,16 +21,14 @@ interface ActivityComponent {
     //used when we cannot construct the instance using constructor like MainActivity
     fun inject(mainActivity: MainActivity)
 
-//    @Component.Builder
-//    interface Builder {
-//        @BindsInstance
-//        fun horsePower(@Named("horse power")hp: Int): Builder
-//
-//        @BindsInstance
-//        fun engineCapacity(@Named("engine capacity") capacity: Int): Builder
-//
-//        fun appComponent(component: AppComponent): Builder
-//
-//        fun build(): ActivityComponent
-//    }
+    @Subcomponent.Builder
+    interface Builder {
+        @BindsInstance
+        fun horsePower(@Named("horse power")hp: Int): Builder
+
+        @BindsInstance
+        fun engineCapacity(@Named("engine capacity") capacity: Int): Builder
+
+        fun build(): ActivityComponent
+    }
 }
